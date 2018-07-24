@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Avatar;
 
 class User extends Authenticatable
 {
@@ -26,4 +27,15 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+
+    /**
+     * [getImageAttribute description]
+     * @param  string $filePath
+     * @return string [image url or base64 data]
+     */
+    public function getImageAttribute($filePath)
+    {
+        return $filePath ? asset("image/users/$filePath") : Avatar::create($this->name)->toBase64();
+    }
 }

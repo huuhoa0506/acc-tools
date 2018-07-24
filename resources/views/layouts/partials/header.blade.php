@@ -501,7 +501,7 @@ data-dropdown-toggle="click" data-dropdown-persistent="true" id="m_quicksearch" 
                             <li class="m-nav__item m-topbar__user-profile m-topbar__user-profile--img  m-dropdown m-dropdown--medium m-dropdown--arrow m-dropdown--header-bg-fill m-dropdown--align-right m-dropdown--mobile-full-width m-dropdown--skin-light" data-dropdown-toggle="click">
                                 <a href="#" class="m-nav__link m-dropdown__toggle">
                                     <span class="m-topbar__userpic">
-                                        <img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless m--img-centered" alt=""/>
+                                        <img src="{{ Auth::user()->image }}" class="m--img-rounded m--marginless m--img-centered" alt=""/>
                                     </span>
                                     <span class="m-topbar__username m--hide">
                                         Nick
@@ -513,7 +513,7 @@ data-dropdown-toggle="click" data-dropdown-persistent="true" id="m_quicksearch" 
                                         <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
                                             <div class="m-card-user m-card-user--skin-dark">
                                                 <div class="m-card-user__pic">
-                                                    <img src="assets/app/media/img/users/user4.jpg" class="m--img-rounded m--marginless" alt=""/>
+                                                    <img src="{{ Auth::user()->image }}" class="m--img-rounded m--marginless" alt=""/>
                                                 </div>
                                                 <div class="m-card-user__details">
                                                     <span class="m-card-user__name m--font-weight-500">
