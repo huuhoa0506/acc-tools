@@ -17,11 +17,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::name('context.')->prefix('context')->namespace('Context')->group(function(){
+Route::name('context.')->middleware(['auth'])->prefix('context')->namespace('Context')->group(function(){
 
-	Route::get('profile', 'ProfileController@getContextUser')->name('profile');
+	Route::get('profile', 'ProfileController@get')->name('profile');
 
-
-
+	Route::post('profile', 'ProfileController@update')->name('profile');
 });
 

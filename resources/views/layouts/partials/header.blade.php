@@ -6,7 +6,7 @@
                 <div class="m-stack m-stack--ver m-stack--general">
                     <div class="m-stack__item m-stack__item--middle m-brand__logo">
                         <a href="index.html" class="m-brand__logo-wrapper">
-                            <img alt="" src="assets/demo/default/media/img/logo/logo_default_dark.png"/>
+                            <img alt="" src="{{ asset('assets/demo/default/media/img/logo/logo_default_dark.png') }}"/>
                         </a>
                     </div>
                     <div class="m-stack__item m-stack__item--middle m-brand__tools">
@@ -510,7 +510,7 @@ data-dropdown-toggle="click" data-dropdown-persistent="true" id="m_quicksearch" 
                                 <div class="m-dropdown__wrapper">
                                     <span class="m-dropdown__arrow m-dropdown__arrow--right m-dropdown__arrow--adjust"></span>
                                     <div class="m-dropdown__inner">
-                                        <div class="m-dropdown__header m--align-center" style="background: url(assets/app/media/img/misc/user_profile_bg.jpg); background-size: cover;">
+                                        <div class="m-dropdown__header m--align-center" style="background: url({{ asset('assets/app/media/img/misc/user_profile_bg.jpg') }}); background-size: cover;">
                                             <div class="m-card-user m-card-user--skin-dark">
                                                 <div class="m-card-user__pic">
                                                     <img src="{{ Auth::user()->image }}" class="m--img-rounded m--marginless" alt=""/>

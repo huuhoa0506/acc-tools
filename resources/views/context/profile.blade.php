@@ -11,15 +11,15 @@
 						</div>
 						<div class="m-card-profile__pic">
 							<div class="m-card-profile__pic-wrapper">
-								<img src="../assets/app/media/img/users/user4.jpg" alt=""/>
+								<img src="{{ $user->image }}" alt=""/>
 							</div>
 						</div>
 						<div class="m-card-profile__details">
 							<span class="m-card-profile__name">
-								Mark Andre
+								{{ $user['name'] }}
 							</span>
 							<a href="" class="m-card-profile__email m-link">
-								mark.andre@gmail.com
+								{{ $user['email'] }}
 							</a>
 						</div>
 					</div>
@@ -171,7 +171,8 @@
 				</div>
 				<div class="tab-content">
 					<div class="tab-pane active" id="m_user_profile_tab_1">
-						<form class="m-form m-form--fit m-form--label-align-right">
+						<form class="m-form m-form--fit m-form--label-align-right" method="POST" action="{{ route('context.profile') }}">
+							@csrf
 							<div class="m-portlet__body">
 								<div class="form-group m-form__group m--margin-top-10 m--hide">
 									<div class="alert m-alert m-alert--default" role="alert">
@@ -190,26 +191,7 @@
 										Full Name
 									</label>
 									<div class="col-7">
-										<input class="form-control m-input" type="text" value="Mark Andre">
-									</div>
-								</div>
-								<div class="form-group m-form__group row">
-									<label for="example-text-input" class="col-2 col-form-label">
-										Occupation
-									</label>
-									<div class="col-7">
-										<input class="form-control m-input" type="text" value="CTO">
-									</div>
-								</div>
-								<div class="form-group m-form__group row">
-									<label for="example-text-input" class="col-2 col-form-label">
-										Company Name
-									</label>
-									<div class="col-7">
-										<input class="form-control m-input" type="text" value="Keenthemes">
-										<span class="m-form__help">
-											If you want your invoices addressed to a company. Leave blank to use your full name.
-										</span>
+										<input class="form-control m-input" type="text" name="name" value="{{ $user['name'] }}">
 									</div>
 								</div>
 								<div class="form-group m-form__group row">
@@ -217,47 +199,25 @@
 										Phone No.
 									</label>
 									<div class="col-7">
-										<input class="form-control m-input" type="text" value="+456669067890">
+										<input class="form-control m-input" type="text"  name="phone" value="{{ $user['phone'] }}">
 									</div>
 								</div>
-								<div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
+
 								<div class="form-group m-form__group row">
-									<div class="col-10 ml-auto">
-										<h3 class="m-form__section">
-											2. Address
-										</h3>
+									<label for="example-text-input" class="col-2 col-form-label">
+										Birth Day
+									</label>
+									<div class="col-7">
+										<input class="form-control m-input" type="text"  name="date_of_birth" value="{{ $user['date_of_birth'] }}">
 									</div>
 								</div>
+
 								<div class="form-group m-form__group row">
 									<label for="example-text-input" class="col-2 col-form-label">
 										Address
 									</label>
 									<div class="col-7">
-										<input class="form-control m-input" type="text" value="L-12-20 Vertex, Cybersquare">
-									</div>
-								</div>
-								<div class="form-group m-form__group row">
-									<label for="example-text-input" class="col-2 col-form-label">
-										City
-									</label>
-									<div class="col-7">
-										<input class="form-control m-input" type="text" value="San Francisco">
-									</div>
-								</div>
-								<div class="form-group m-form__group row">
-									<label for="example-text-input" class="col-2 col-form-label">
-										State
-									</label>
-									<div class="col-7">
-										<input class="form-control m-input" type="text" value="California">
-									</div>
-								</div>
-								<div class="form-group m-form__group row">
-									<label for="example-text-input" class="col-2 col-form-label">
-										Postcode
-									</label>
-									<div class="col-7">
-										<input class="form-control m-input" type="text" value="45000">
+										<input class="form-control m-input" type="text" name="address" value="{{ $user['address'] }}">
 									</div>
 								</div>
 								<div class="m-form__seperator m-form__seperator--dashed m-form__seperator--space-2x"></div>
@@ -306,7 +266,7 @@
 									<div class="row">
 										<div class="col-2"></div>
 										<div class="col-7">
-											<button type="reset" class="btn btn-accent m-btn m-btn--air m-btn--custom">
+											<button type="submit" class="btn btn-accent m-btn m-btn--air m-btn--custom">
 												Save changes
 											</button>
 											&nbsp;&nbsp;
