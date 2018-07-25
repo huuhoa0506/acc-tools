@@ -36,4 +36,15 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
+
+    /**
+     * redirect back to last request url
+     *
+     * @return \Illuminate\Http\Response
+     */
+    protected function redirectTo()
+    {
+        return back();
+    }
 }

@@ -17,10 +17,30 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::name('context.')->middleware(['auth'])->prefix('context')->namespace('Context')->group(function(){
 
-	Route::get('profile', 'ProfileController@get')->name('profile');
+Route::middleware(['auth:web'])->group(function(){
 
-	Route::post('profile', 'ProfileController@update')->name('profile');
+
+	Route::name('context.')->prefix('context')->namespace('Context')->group(function(){
+
+		Route::get('profile', 'ProfileController@get')->name('profile');
+
+		Route::post('profile', 'ProfileController@update')->name('profile');
+
+	});
+
+	Route::namespace('User')->group(function(){
+
+		Route::resource('users', 'UserController');
+	});
+
+});
+
+
+
+
+Route::name('xhr.')->middleware(['auth'])->prefix('xhr')->namespace('XHR')->group(function(){
+	Route::get('users', 'UserController@index')->name('users');
+	Route::post('users', 'UserController@index')->name('users');
 });
 
