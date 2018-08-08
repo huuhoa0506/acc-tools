@@ -15,7 +15,7 @@ class ReminderController extends Controller
      */
     public function index()
     {
-        $remindings = Reminder::paginate();
+        $remindings = Reminder::shouldBeSent()->paginate();
         return view('reminder.index', ['remindings' => $remindings]);
     }
 
@@ -75,7 +75,7 @@ class ReminderController extends Controller
     {
         $reminding = Reminder::findOrFail($id);
 
-        
+
     }
 
     /**
@@ -90,6 +90,6 @@ class ReminderController extends Controller
 
         $reminder->delete();
 
-        return redirect()->back();
+        return redirect()->route('reminders.index');
     }
 }

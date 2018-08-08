@@ -29,4 +29,14 @@ class Reminder extends Model
     {
         SendRemindingToAgent::dispatch($this);
     }
+
+    /**
+     * [scopeShouldBeSent description]
+     * @param  [type] $query [description]
+     * @return [type]        [description]
+     */
+    public function scopeShouldBeSent($query)
+    {
+        return $query->where('is_sent', false);
+    }
 }

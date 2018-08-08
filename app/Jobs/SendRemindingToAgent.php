@@ -9,6 +9,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Mail\AgentReminding;
 use App\Agent\Reminder;
+use Carbon\Carbon;
 use Mail;
 
 class SendRemindingToAgent implements ShouldQueue
@@ -36,5 +37,8 @@ class SendRemindingToAgent implements ShouldQueue
     {
         $reminding = $this->reminding;
         Mail::to($reminding)->send(new AgentReminding($reminding));
+        $reminding->is_sent = true;
+        $reminding->sent_at = Carbon::now()->toDatetimeString();
+        $reminding->save();
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Reminder;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Agent\{ReminderListImport, ReminderListRequest, Reminder};
+use App\Http\Requests\SendPaymentReminderRequest;
 
 class PaymentReminderController extends Controller
 {
@@ -28,7 +29,7 @@ class PaymentReminderController extends Controller
     		Reminder::create($reminder);
     	}
 
-    	return back();
+    	return redirect()->route('reminders.index');
     }
 
     /**
@@ -43,7 +44,7 @@ class PaymentReminderController extends Controller
 
 
 
-    public function addToQueue(Request $request)
+    public function addToQueue(SendPaymentReminderRequest $request)
     {
     	$ids = $request->ids;
 

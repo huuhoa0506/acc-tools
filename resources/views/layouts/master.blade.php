@@ -159,7 +159,7 @@
         <script src="{{ asset('assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
         <!--end::Base Scripts -->
         <!--begin::Page Snippets -->
-        <!-- <script src="{{ asset('assets/app/js/dashboard.js') }}" type="text/javascript"></script> -->
+        <script src="{{ asset('assets/app/js/dashboard.js') }}" type="text/javascript"></script>
         <!--end::Page Snippets -->
         <script src="{{ asset('assets/js/app.js') }}" type="text/javascript"></script>
         @section('js')
