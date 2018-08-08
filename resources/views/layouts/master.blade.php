@@ -24,7 +24,7 @@
     <!--begin::Base Styles -->
     <link href="{{ asset('assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/demo/default/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <!-- <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet" type="text/css" /> -->
+    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet" type="text/css" />
     <!--end::Base Styles -->
     <link rel="shortcut icon" href="assets/demo/default/media/img/logo/favicon.ico" />
 </head>
@@ -159,8 +159,9 @@
         <script src="{{ asset('assets/demo/default/base/scripts.bundle.js') }}" type="text/javascript"></script>
         <!--end::Base Scripts -->
         <!--begin::Page Snippets -->
-        <script src="{{ asset('assets/app/js/dashboard.js') }}" type="text/javascript"></script>
+        <!-- <script src="{{ asset('assets/app/js/dashboard.js') }}" type="text/javascript"></script> -->
         <!--end::Page Snippets -->
+        <script src="{{ asset('assets/js/app.js') }}" type="text/javascript"></script>
         @section('js')
         @show
     </body>

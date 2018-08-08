@@ -34,8 +34,17 @@ Route::middleware(['auth:web'])->group(function(){
 		Route::resource('users', 'UserController');
 	});
 
-});
 
+	Route::namespace('Reminder')->group(function(){
+		Route::get('reminder', 'PaymentReminderController@showForm');
+		Route::post('reminder', 'PaymentReminderController@import')->name('import.reminder');
+		Route::post('reminder/queue', 'PaymentReminderController@addToQueue')->name('mail.queue');
+		Route::resource('reminders', 'ReminderController');
+	});
+
+
+
+});
 
 
 
